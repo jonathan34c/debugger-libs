@@ -1,4 +1,4 @@
-// 
+﻿// 
 // DebuggerSessionOptions.cs
 //  
 // Author:
@@ -25,6 +25,7 @@
 // THE SOFTWARE.
 
 using System;
+using System.Collections.Generic;
 
 namespace Mono.Debugging.Client
 {
@@ -44,5 +45,8 @@ namespace Mono.Debugging.Client
 		public bool ProjectAssembliesOnly { get; set; }
 		public AutomaticSourceDownload AutomaticSourceLinkDownload { get; set; }
 		public bool DebugSubprocesses { get; set; }
+		public List<string> SymbolSearchPaths { get; set; } = new List<string> ();
+		public bool SearchMicrosoftSymbolServer { get; set; }
+		public bool SearchNuGetSymbolServer { get; set; }
 	}
 }
