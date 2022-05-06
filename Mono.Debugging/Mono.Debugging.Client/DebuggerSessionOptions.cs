@@ -45,8 +45,28 @@ namespace Mono.Debugging.Client
 		public bool ProjectAssembliesOnly { get; set; }
 		public AutomaticSourceDownload AutomaticSourceLinkDownload { get; set; }
 		public bool DebugSubprocesses { get; set; }
-		public List<string> SymbolSearchPaths { get; set; } = new List<string> ();
+		public List<SymbolSource> SymbolSearchPaths { get; set; } = new List<SymbolSource> ();
 		public bool SearchMicrosoftSymbolServer { get; set; }
 		public bool SearchNuGetSymbolServer { get; set; }
+	}
+
+	[Serializable]
+	public class SymbolSource
+	{
+		public SymbolSource ()
+		{
+			// For deserialization
+		}
+
+		public SymbolSource (string path, string name, bool isEnabled)
+		{
+			Path = path;
+			Name = name;
+			IsEnabled = isEnabled;
+		}
+
+		public string Name { get; set; }
+		public string Path { get; set; }
+		public bool IsEnabled { get; set; }
 	}
 }
