@@ -26,6 +26,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 
 namespace Mono.Debugging.Client
 {
@@ -45,7 +46,7 @@ namespace Mono.Debugging.Client
 		public bool ProjectAssembliesOnly { get; set; }
 		public AutomaticSourceDownload AutomaticSourceLinkDownload { get; set; }
 		public bool DebugSubprocesses { get; set; }
-		public List<SymbolSource> SymbolSearchPaths { get; set; } = new List<SymbolSource> ();
+		public ImmutableList<SymbolSource> SymbolSearchPaths { get; set; } = ImmutableList<SymbolSource>.Empty;
 		public bool SearchMicrosoftSymbolServer { get; set; }
 		public bool SearchNuGetSymbolServer { get; set; }
 	}
