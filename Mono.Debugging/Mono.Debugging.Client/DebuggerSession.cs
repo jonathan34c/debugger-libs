@@ -1304,7 +1304,12 @@ namespace Mono.Debugging.Client
 		{
 			AssemblyLoaded?.Invoke (this, new AssemblyEventArgs (assemblyLocation));
 		}
-		
+
+		internal protected void OnAssemblyLoaded (string assemblyLocation, List<Assembly> assemblies)
+		{
+			AssemblyLoaded?.Invoke (this, new AssemblyEventArgs (assemblyLocation, assemblies));
+		}
+
 		internal protected void SetBusyState (BusyStateEventArgs args)
 		{
 			BusyStateChanged?.Invoke (this, args);
